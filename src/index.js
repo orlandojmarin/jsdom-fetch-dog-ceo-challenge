@@ -35,7 +35,7 @@ for (const property in breedURLArray) {
     }*/
 const newDogBreed = document.createElement("li");
 newDogBreed.innerHTML = property
-newDogBreed.class = "dogLi"
+newDogBreed.className = "dogLi"
 newDogBreed.addEventListener("click", (e) => {
     e.target.style = "color:blue"
 })
@@ -46,7 +46,12 @@ const selector = document.getElementById("breed-dropdown");
 selector.addEventListener("change", (e) => {
 let listItems = document.getElementsByClassName("dogLi")
 for (let i = 0; i < listItems.length; i++) {
-    console.log(listItems[i])
+    console.log(listItems[i].innerHTML[0] === e.target.value)
+    if (listItems[i].innerHTML[0] === e.target.value) {
+        listItems[i].style.display = "";
+    } else {
+        listItems[i].style.display = "none";
+    }
 }
 })
 }
