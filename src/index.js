@@ -27,12 +27,30 @@ fetch(breedUrl)
 })
 .then(function(json){
 const breedURLArray = json.message 
-console.log(typeof breedURLArray);
 for (const property in breedURLArray) {
-    console.log(`${property}: ${object[property]}`);
+    /*if (breedURLArray[property].length == 0) {
+        const newDogBreed = document.createElement("li");
+        newDogBreed.innerHTML = property
+        dogList.append(newDogBreed);
+    }*/
+const newDogBreed = document.createElement("li");
+newDogBreed.innerHTML = property
+newDogBreed.class = "dogLi"
+newDogBreed.addEventListener("click", (e) => {
+    e.target.style = "color:blue"
+})
+dogList.append(newDogBreed);
   }
 })
+const selector = document.getElementById("breed-dropdown");
+selector.addEventListener("change", (e) => {
+let listItems = document.getElementsByClassName("dogLi")
+for (let i = 0; i < listItems.length; i++) {
+    console.log(listItems[i])
 }
+})
+}
+
 
 
 
